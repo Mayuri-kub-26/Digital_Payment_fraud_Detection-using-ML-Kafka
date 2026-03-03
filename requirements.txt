@@ -1,0 +1,10 @@
+pandas
+scikit-learn
+kafka-python
+streamlit
+faker
+joblib
+numpy
+altair
+psutil
+streamlit-lottie

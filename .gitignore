@@ -1,0 +1,23 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ML Models & Data
+*.pkl
+*.db
+fraud_data.csv
+
+# Environment Files
+.env
+.producer_pid
+
+# IDEs
+.vscode/
+.idea/
+
+# Node
+node_modules/
+package-lock.json

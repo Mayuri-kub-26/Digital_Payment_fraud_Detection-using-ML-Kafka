@@ -15,16 +15,18 @@ print("Loading model...")
 clf = joblib.load(MODEL_PATH)
 
 # Initialize Kafka Consumer
+KAFKA_BROKER = os.getenv('KAFKA_BROKER', 'localhost:9092')
+
 consumer = KafkaConsumer(
     'transactions',
-    bootstrap_servers='localhost:9092',
+    bootstrap_servers=KAFKA_BROKER,
     auto_offset_reset='latest',
     value_deserializer=lambda x: json.loads(x.decode('utf-8'))
 )
 
 # Initialize Kafka Producer for Alerts
 producer = KafkaProducer(
-    bootstrap_servers='localhost:9092',
+    bootstrap_servers=KAFKA_BROKER,
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 

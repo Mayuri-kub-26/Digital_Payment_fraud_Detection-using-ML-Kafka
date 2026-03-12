@@ -27,27 +27,26 @@ docker-compose up -d
    pip install -r requirements.txt
    ```
 
-## Step 3: Run Components
-You need **3 separate terminals**.
+## Running the System
 
-**Terminal 1: Dashboard**
-```powershell
-.\venv\Scripts\Activate
-streamlit run src/dashboard/app.py
-```
+You no longer need multiple terminals! Follow these steps:
 
-**Terminal 2: Fraud Detector**
-```powershell
-.\venv\Scripts\Activate
-python src/detector/app.py
-```
+1.  **Start Everything**
+    Open a terminal in the project root and run:
+    ```powershell
+    docker-compose up --build
+    ```
+    *Note: The first time will take a few minutes to build the images.*
 
-**Terminal 3: Transaction Producer**
-(Or click "Start Simulation" in the Dashboard)
-```powershell
-.\venv\Scripts\Activate
-python src/producer/app.py
-```
+2.  **Monitor the Dashboard**
+    Open [http://localhost:8501](http://localhost:8501) in your browser.
+
+3.  **View Logs (Optional)**
+    If you want to see what's happening behind the scenes (like the old terminal outputs):
+    ```powershell
+    docker-compose logs -f
+    ```
+
 
 ## Troubleshooting
 - If you see a "Model not found" error, run:

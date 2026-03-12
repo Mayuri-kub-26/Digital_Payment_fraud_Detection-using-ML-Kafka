@@ -1,3 +1,4 @@
+import os
 import json
 import time
 import random
@@ -8,11 +9,24 @@ from faker import Faker
 
 fake = Faker()
 
-# Initialize Kafka Producer
-producer = KafkaProducer(
-    bootstrap_servers='localhost:9092',
-    value_serializer=lambda v: json.dumps(v).encode('utf-8')
-)
+# Initialize Kafka Producer with Retries
+KAFKA_BROKER = os.getenv('KAFKA_BROKER', 'localhost:9092')
+
+def get_producer():
+    import time
+    max_retries = 10
+    for i in range(max_retries):
+        try:
+            return KafkaProducer(
+                bootstrap_servers=KAFKA_BROKER,
+                value_serializer=lambda v: json.dumps(v).encode('utf-8')
+            )
+        except Exception as e:
+            print(f"Waiting for Kafka... (Attempt {i+1}/{max_retries})")
+            time.sleep(5)
+    raise Exception("Could not connect to Kafka")
+
+producer = get_producer()
 
 TOPIC_NAME = 'transactions'
 

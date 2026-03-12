@@ -1,34 +1,28 @@
 # Real-Time Payment Fraud Detection
 
-## Setup
+## Setup & Running
 
-1.  **Start Kafka Infrastructure**
-    Make sure Docker Desktop is running.
+1.  **Start the Entire System**
+    Make sure Docker Desktop is running. In the project root, run:
     ```bash
-    docker-compose up -d
+    docker-compose up --build
+    ```
+    This single command starts:
+    - **Kafka & Zookeeper** (Message Broker)
+    - **Fraud Detector** (ML Prediction Service)
+    - **Transaction Producer** (Traffic Simulator)
+    - **Streamlit Dashboard** (Real-time UI)
+
+2.  **Access the Dashboard**
+    Open your browser and navigate to:
+    [http://localhost:8501](http://localhost:8501)
+
+3.  **Logs & Monitoring**
+    To see the live processing logs (as previously shown in separate terminals):
+    ```bash
+    docker-compose logs -f
     ```
 
-2.  **Install Dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **Run the System**
-    You will need 3 separate terminals:
-
-    *   **Terminal 1 (Streamlit Dashboard)**:
-        ```bash
-        streamlit run src/dashboard/app.py
-        ```
-    *   **Terminal 2 (Fraud Detector)**:
-        ```bash
-        python src/detector/app.py
-        ```
-    *   **Terminal 3 (Transaction Producer)**:
-        (This is triggered via the Dashboard, but can run standalone)
-        ```bash
-        python src/producer/app.py
-        ```
 
 ## Architecture
 - **Kafka**: Message broker for transactions.

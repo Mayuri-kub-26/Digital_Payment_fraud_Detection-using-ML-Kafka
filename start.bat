@@ -56,11 +56,11 @@ echo  [OK]    Dashboard is live!
 echo.
 
 :: ─── STEP 4: OPEN BROWSER ──────────────────────────────────────────────────────
-echo  [3/3] Opening GuardianAI in your default browser...
+echo  [3/3] Opening FraudSense AI in your default browser...
 start http://localhost:8501
 echo.
 echo  ============================================================
-echo   GuardianAI is RUNNING at:  http://localhost:8501
+echo   FraudSense AI is RUNNING at:  http://localhost:8501
 echo.
 echo   To STOP everything, run:   docker-compose down
 echo   Logs are streaming below  (Ctrl+C to stop log following)

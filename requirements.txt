@@ -1,10 +1,8 @@
 pandas
 scikit-learn
+xgboost
 kafka-python
 streamlit
 faker
 joblib
 numpy
-altair
-psutil
-streamlit-lottie

@@ -16,7 +16,7 @@
     --panel:  rgba(255,255,255,0.028);
     --border: rgba(0,240,255,0.10);
     --text:   #d0e8ff;
-    --dim:    #3a5a78;
+    --dim:    #7ab0d4;
 }
 
 /* ── RESET ── */
@@ -480,6 +480,29 @@ section[data-testid="stSidebar"]  { display: none !important; }
     opacity: 0.7;
 }
 
+.tx-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--dim);
+    margin-bottom: 6px;
+    opacity: 0.7;
+}
+
+.risk-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.48rem;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 4px;
+    letter-spacing: 0.5px;
+}
+.risk-tag.red    { background: rgba(255,61,113,0.25); color: var(--red); border: 1px solid rgba(255,61,113,0.4); }
+.risk-tag.amber  { background: rgba(245,174,11,0.2); color: var(--amber); border: 1px solid rgba(245,174,11,0.4); }
+.risk-tag.orange { background: rgba(255,122,0,0.2); color: #ff7a00; border: 1px solid rgba(255,122,0,0.4); }
+.risk-tag.purple { background: rgba(124,58,237,0.2); color: #a855f7; border: 1px solid rgba(124,58,237,0.4); }
+.risk-tag.cyan   { background: rgba(0,240,255,0.15); color: var(--cyan); border: 1px solid rgba(0,240,255,0.3); }
+
 /* ── ANIMATED SLIDING BAR (per row) ── */
 .slide-bar-bg {
     height: 2px;
@@ -578,14 +601,17 @@ section[data-testid="stSidebar"]  { display: none !important; }
 .footer {
     text-align: center;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.58rem;
-    color: var(--dim);
+    font-size: 0.65rem;
+    color: #a0c8e8;
     letter-spacing: 2px;
-    opacity: 0.5;
-    padding: 28px 0 12px;
-    border-top: 1px solid rgba(255,255,255,0.04);
+    opacity: 1;
+    padding: 28px 0 20px;
+    border-top: 1px solid rgba(0,240,255,0.12);
     margin-top: 20px;
 }
+
+/* ── Hide Streamlit's own built-in footer to prevent a double footer ── */
+.stApp footer { display: none !important; }
 
 /* ════════════════════════════════════════════
    STREAMLIT SELECTBOX DARK OVERRIDE
